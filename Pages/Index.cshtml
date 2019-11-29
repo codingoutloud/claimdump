@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+<h1 class="display-4">Got claims?</h1>
+<table style="width:100%">
+  <tr>
+    <th>Claim Type</th>
+    <th>Claim Value</th>
+  </tr>
+
+@foreach (var claim in User.Claims)
+{
+  <tr>
+    <td>@Html.Raw(claim.Type)</td>
+    <td>@Html.Raw(claim.Value)</td>
+  </tr>
+}
+</table>
+
+<small><small>Note: Claims are available only if user is authenticated</small></small>
+
+</div>
